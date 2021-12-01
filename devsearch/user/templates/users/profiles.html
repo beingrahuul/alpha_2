@@ -35,31 +35,18 @@
                   <img class="avatar avatar--md" src="{{ profile.profile_image.url }}" alt="image" />
                   <div class="dev__meta">
                     <h3>{{profile.name}}</h3>
-                    <h5>{{profile.short_intro}}</h5>
+                    <h5>{{profile.short_intro|slice:"100"}}</h5>
                   </div>
                 </div>
                 <p class="dev__info">
-                  {{profile.bio}}
+                  {{profile.bio|slice:"250"}}
                 </p>
                 <div class="dev__skills">
+                  {% for skill in profile.skill_set.all %}
                   <span class="tag tag--pill tag--main">
-                    <small>JavaScript</small>
+                    <small>{{ skill }}</small>
                   </span>
-                  <span class="tag tag--pill tag--main">
-                    <small>React</small>
-                  </span>
-                  <span class="tag tag--pill tag--main">
-                    <small>SCSS</small>
-                  </span>
-                  <span class="tag tag--pill tag--main">
-                    <small>Nodejs</small>
-                  </span>
-                  <span class="tag tag--pill tag--main">
-                    <small>Express</small>
-                  </span>
-                  <span class="tag tag--pill tag--main">
-                    <small>GraphQL</small>
-                  </span>
+                {% endfor %}
                 </div> 
               </a>
             </div>

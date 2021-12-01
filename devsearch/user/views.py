@@ -8,3 +8,8 @@ def profile(request):
         'profiles': profiles
     }
     return render(request, 'users/profiles.html', context=context)
+
+
+def userProfile(request):
+    
+    return render(request, 'users/user-profile.html', context=context)
